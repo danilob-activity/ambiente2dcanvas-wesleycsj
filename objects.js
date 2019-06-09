@@ -8,7 +8,7 @@ function Box(center = [0, 0, 1], height = 50, width = 50) {
     this.center = center;
     this.height = height;
     this.width = width;
-    this.T = identity(); //matriz 3x3 de translação 
+    this.T = identity(); //matriz 3x3 de translação
     this.R = identity(); //matriz 3x3 de rotação
     this.S = identity(); //matriz 3x3 de escala
     this.fill = white; //cor de preenchimento -> aceita cor hex, ex.: this.fill = "#4592af"
@@ -74,7 +74,7 @@ Box.prototype.draw = function(canv = ctx) { //requer o contexto de desenho
 function Circle(center = [0, 0, 1], radius = 50) {
     this.center = center;
     this.radius = radius;
-    this.T = identity(); //matriz 3x3 de translação 
+    this.T = identity(); //matriz 3x3 de translação
     this.R = identity(); //matriz 3x3 de rotação
     this.S = identity(); //matriz 3x3 de escala
     this.fill = white; //cor de preenchimento -> aceita cor hex, ex.: this.fill = "#4592af"
@@ -114,7 +114,8 @@ Circle.prototype.setFill = function(fill) {
 Circle.prototype.draw = function(canv = ctx) { //requer o contexto de desenho
     //pega matriz de tranformação de coordenadas canônicas para coordenadas do canvas
     var M = transformCanvas(WIDTH, HEIGHT);
-    var Mg = mult(M, mult(mult(this.R, this.S), this.T));
+    //var Mg = mult(M, mult(mult(this.R, this.S), this.T));
+    var Mg = mult(M, mult(mult(this.T, this.R), this.S));
     canv.lineWidth = 2; //largura da borda
     canv.strokeStyle = this.stroke;
     canv.fillStyle = this.fill;

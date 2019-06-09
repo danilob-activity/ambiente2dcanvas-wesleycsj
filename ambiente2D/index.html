@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ambiente 2D</title>
+  <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="content">
+    <div class="column-canvas">
+      <canvas id="canvas"></canvas>
+    </div>
+    <div class="column-aside">
+      <div class="field">
+        <span>Name:</span>
+        <input id="name" class="input" type="text" oninput="Canvas.setPropertiesToObject()" placeholder="Name">
+      </div>
+      <div class="field">
+        <span>Width:</span>
+        <input id="width" class="input" type="text" oninput="Canvas.setPropertiesToObject()" placeholder="Width">
+      </div>
+      <div class="field">
+        <span>Height:</span>
+        <input id="height" class="input" type="text" oninput="Canvas.setPropertiesToObject()" placeholder="Height">
+      </div>
+      <div class="field">
+        <span>Stroke Color:</span>
+        <input id="stroke" class="input" type="color" oninput="Canvas.setPropertiesToObject()" placeholder="Stroke Color">
+      </div>
+      <div class="field">
+        <span>Fill Color:</span>
+        <input id="fill" class="input is-primary" type="color" oninput="Canvas.setPropertiesToObject()" placeholder="Fill Color">
+      </div>
+      <div class="field">
+        <span>Transform (x,y):</span>
+        <input id="transform" class="input is-primary" type="text"oninput="Canvas.setPropertiesToObject()"  placeholder="Transform: x,y">
+      </div>
+      <div class="field">
+        <span>Rotate (Degree):</span>
+        <input id="rotate" class="input is-primary" type="text"oninput="Canvas.setPropertiesToObject()" placeholder="Rotate: Angle in degrees">
+      </div>
+      <div class="field">
+        <span>Scale (sx,sy):</span>
+        <input id="scale" class="input is-primary" type="text"oninput="Canvas.setPropertiesToObject()"  placeholder="Scale x,y">
+      </div>
+      <hr />
+      <div class="field">
+        <button class="button is-info" onclick="Canvas.addBox(25,25)">Append Box</button>
+        <button class="button is-info" onclick="Canvas.addCircle(15)">Append Circle</button>
+      </div>
+    </div>
+  </div>
+  <script src="js/matrix.js"></script>
+  <script defer src="js/canvas.js"></script>
+</body>
+</html
